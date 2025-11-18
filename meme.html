@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sätze, die keinen Sinn ergeben</title>
+  <style>
+    :root{
+      --bg: #0f1020;
+      --card: #171833;
+      --accent: #7c5cff;
+      --accent2: #ff6b6b;
+      --text: #e8e8ff;
+      --muted: #b7b7d9;
+      --ring: rgba(124,92,255,.35);
+    }
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% 20%, #1a1b3d 20%, transparent 60%),
+        radial-gradient(800px 500px at 90% 0%, #1c1130 10%, transparent 60%),
+        linear-gradient(180deg, var(--bg), #0a0b18 60%, #090a16);
+      color: var(--text);
+      padding:4rem 1.5rem;
+      /* WICHTIG: kein height:100% und kein zentrierendes flex */
+    }
+
+    .container{
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .header{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      margin-bottom: 1.5rem;
+    }
+    .logo{
+      width:48px;height:48px;
+      border-radius:12px;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent2), var(--accent));
+      box-shadow: 0 0 0 6px var(--ring), 0 10px 30px rgba(0,0,0,.35);
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin{to{transform: rotate(360deg)}}
+    .title{font-weight:800; font-size: clamp(1.2rem, 3vw, 1.8rem);}
+    .subtitle{color: var(--muted); font-size:.95rem; margin-top:.25rem;}
+
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap: 1rem;}
+
+    .card{
+      grid-column: span 12;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 1.25rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+
+    @media (min-width: 720px){
+      .card.span-6{grid-column: span 6}
+      .card.span-4{grid-column: span 4}
+      .card.span-8{grid-column: span 8}
+    }
+
+    .badge{display:inline-flex; align-items:center; gap:.5rem; padding:.4rem .7rem; border-radius:999px; background: rgba(124,92,255,.12); border: 1px solid rgba(124,92,255,.45); color: var(--text); font-size:.85rem; margin-bottom:.75rem;}
+    .badge .dot{width:8px;height:8px;border-radius:50%;background: var(--accent);}
+
+    .line{margin:.5rem 0; padding:.6rem .8rem; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px dashed rgba(255,255,255,.15);}
+    .num{min-width: 28px; height:28px; border-radius:8px; background: var(--accent); color: white; display:inline-flex; align-items:center; justify-content:center; font-weight:700;}
+
+    .footer{margin-top:1.25rem; display:flex; gap:.75rem; flex-wrap:wrap;}
+    .pill{padding:.5rem .8rem; border-radius:999px; border:1px solid rgba(255,255,255,.14); color: var(--muted); background: rgba(255,255,255,.03);}
+
+    .cta{margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;}
+    .btn{padding:.7rem 1rem; border-radius:12px; font-weight:700; cursor:pointer;}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="header">
+      <div class="logo"></div>
+      <div>
+        <div class="title">Sinnfreie Satzgalerie</div>
+        <div class="subtitle">Ästhetisch nutzlos. Poetisch unverständlich. Vollkommen großartig.</div>
+      </div>
+    </div>
+
+    <section class="grid">
+      <article class="card span-8">
+        <div class="badge"><span class="dot"></span>Kuratiert unlogisch</div>
+        <div class="line"><div class="num">01</div>Die Uhr schwimmt durch den Sand…</div>
+        <div class="line"><div class="num">02</div>Ein flüsternder Toaster schreibt Wolkenbriefe…</div>
+        <div class="line"><div class="num">03</div>Berge tanzen im Taschenformat…</div>
+        <div class="line"><div class="num">04</div>Die Bibliothek atmet leise Pixel…</div>
+        <div class="line"><div class="num">05</div>Montag trinkt Laternenlicht…</div>
+        <div class="cta">
+          <button class="btn">Mehr Unsinn mischen</button>
+          <button class="btn">Farbe kippen</button>
+        </div>
+      </article>
+
+      <article class="card span-4">
+        <div class="badge"><span class="dot"></span>Bonus-Unsinn</div>
+        <div class="line"><div class="num">A</div>Ein Gedanke fährt Fahrrad auf Papiermeer…</div>
+        <div class="line"><div class="num">B</div>Der Kühlschrank hält Winterschlaf im Sommer…</div>
+        <div class="line"><div class="num">C</div>Wörter jonglieren Papiertiger…</div>
+        <div class="footer">
+          <span class="pill">Zerstreuung</span>
+          <span class="pill">Surreal</span>
+          <span class="pill">Nonsens</span>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
